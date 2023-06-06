@@ -1,0 +1,54 @@
+{
+	"id": "MR-mim-annotation",
+	"name": "mim-annotation",
+	"description": "文件头部注释",
+	"displayName": "mim-annotation 注释插件",
+	"version": "1.0.0",
+	"publisher": "Mim.Richard",
+	"engines": {
+		"HBuilderX": "^2.7.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"main": "./extension",
+	"contributes": {
+		"configuration": {
+			"title": "mim-annotation 注释插件",
+			"properties": {
+				"isLastEdit": {
+					"type": "boolean",
+					"default": false,
+					"description": "取消最后二句注释"
+				},
+				"Author": {
+					"type": "string",
+					"default": "Mim.Richard",
+					"description": "配置注释作者"
+				}
+			}
+		},
+		"commands": [{
+			"command": "extension.insert",
+			"title": "注释信息"
+		}],
+		"menus": {
+			"editor/context": [{
+				"title": "文件头部注释",
+				"group": "assist",
+				"when": "editorTextFocus",
+				"command": "extension.insert"
+			}]
+		},
+		"keybindings": [{
+			"command": "extension.insert",
+			"key": "Ctrl+Alt+I",
+			"when": "",
+			"macosx": "command+Ctrl+I"
+		}]
+	},
+	"extensionDependencies": [
+		"plugin-manager"
+	],
+	"dependencies": {}
+}
